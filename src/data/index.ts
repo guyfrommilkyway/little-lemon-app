@@ -1,6 +1,6 @@
 // assets below
 import GreekSalad from '@/assets/salad.jpg';
-import Bruchetta from '@/assets/bruchetta.svg';
+import Bruchetta from '@/assets/bruchetta.png';
 import Dessert from '@/assets/dessert.jpg';
 
 export const NAV_DATA = [
