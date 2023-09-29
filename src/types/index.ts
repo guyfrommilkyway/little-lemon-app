@@ -1,4 +1,6 @@
+// packages
 import { ReactNode } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 type RenderJSX = () => ReactNode;
 
@@ -61,4 +63,23 @@ export interface AboutProps {
 //
 export interface MenuProps {
   render: RenderJSX;
+}
+
+// Form
+export interface BookingForm {
+  firstName: string;
+  lastName: string;
+  mobile: string;
+  guests: number;
+  date: string;
+  time: string;
+}
+
+export interface InputProps {
+  register: UseFormRegisterReturn;
+  id: string;
+  label: string;
+  type: string;
+  isInvalid: boolean;
+  errorMessage: string;
 }
