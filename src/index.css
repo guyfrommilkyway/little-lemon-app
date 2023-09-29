@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Markazi+Text&family=Open+Sans&family=Roboto&family=Tektur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Markazi+Text&family=Open+Sans&family=Roboto&family=Tektur&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grid-gap: 20px;
+  --grid-base: repeat(4, 1fr);
+  --grid-tablet: repeat(8, 1fr);
+  --grid-desktop: repeat(12, 1fr);
+  --grid-width: 100%;
+  --grid-max-width: 1920px;
+  --grid-margin: 0 auto;
+  --grid-padding-base: 0 16px;
+  --grid-padding-tablet: 0 48px;
+  --grid-padding-desktop: 0 96px;
+}
+
+* {
+  font-family: 'Karla', sans-serif;
+  font-display: swap;
+}
+
+#root {
+  position: relative;
+  z-index: 100;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: var(--grid-base);
+  gap: var(--grid-gap);
+  width: var(--grid-width);
+  max-width: var(--grid-max-width);
+  margin: var(--grid-margin);
+  padding: var(--grid-padding-base);
+  background-color: #ffffff;
+}
+
+#root > #layout {
+  grid-column: span 4;
+}
+
+@media screen and (min-width: 768px) {
+  #root {
+    grid-template-columns: var(--grid-tablet);
+    padding: var(--grid-padding-tablet);
+  }
+
+  #root > #layout {
+    grid-column: span 8;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #root {
+    grid-template-columns: var(--grid-desktop);
+    padding: var(--grid-padding-desktop);
+  }
+
+  #root > #layout {
+    grid-column: span 12;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Markazi Text', serif;
+  font-display: swap;
+}
