@@ -9,10 +9,8 @@ const NavItem: React.FC<NavItemProps> = memo(props => {
   const { name, to } = props;
 
   return (
-    <Link to={to}>
-      <div className='w-full font-semibold whitespace-nowrap'>
-        <span className='text-secondary-4'>{name}</span>
-      </div>
+    <Link className='w-full font-semibold whitespace-nowrap' to={to}>
+      <span className='text-secondary-4'>{name}</span>
     </Link>
   );
 });
