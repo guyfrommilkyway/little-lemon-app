@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import Input from './Input';
 
 // utils
-import { toastSuccess, toastError } from '@/utils/notifications';
+import { toastSuccess } from '@/utils/notifications';
 
 // types
 import { BookingForm } from '@/types';
@@ -15,7 +15,6 @@ const Form: React.FC = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<BookingForm>();
