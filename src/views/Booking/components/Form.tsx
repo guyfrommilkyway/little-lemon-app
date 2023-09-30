@@ -1,6 +1,6 @@
 // packages
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form';
 
 // components
 import Input from './Input';
@@ -9,17 +9,12 @@ import Input from './Input';
 import { toastSuccess } from '@/utils/notifications';
 
 // types
-import { BookingForm } from '@/types';
+import { FormProps, BookingForm } from '@/types';
 
-const Form: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<BookingForm>();
+const Form: React.FC<FormProps> = props => {
+  const { handleSubmit, register, errors, reset } = props;
 
-  const onSubmit = (data: BookingForm) => {
+  const onSubmit: SubmitHandler<BookingForm> = data => {
     console.log(data);
 
     reset();
@@ -38,6 +33,7 @@ const Form: React.FC = () => {
             type='text'
             isInvalid={!!errors.firstName}
             errorMessage='Please enter a first name'
+            testId='form-input-first-name'
           />
           <Input
             register={{ ...register('lastName', { required: true }) }}
@@ -46,6 +42,7 @@ const Form: React.FC = () => {
             type='text'
             isInvalid={!!errors.lastName}
             errorMessage='Please enter a last name'
+            testId='form-input-last-name'
           />
           <Input
             register={{ ...register('mobile', { required: true }) }}
@@ -54,6 +51,7 @@ const Form: React.FC = () => {
             type='number'
             isInvalid={!!errors.mobile}
             errorMessage='Please enter a mobile no.'
+            testId='form-input-mobile'
           />
         </div>
         <div>
@@ -65,6 +63,7 @@ const Form: React.FC = () => {
             type='number'
             isInvalid={!!errors.guests}
             errorMessage='Please enter no. of guests'
+            testId='form-input-guests'
           />
           <Input
             register={{ ...register('date', { required: true }) }}
@@ -73,6 +72,7 @@ const Form: React.FC = () => {
             type='date'
             isInvalid={!!errors.date}
             errorMessage='Please enter a date'
+            testId='form-input-date'
           />
           <Input
             register={{ ...register('time', { required: true }) }}
@@ -81,6 +81,7 @@ const Form: React.FC = () => {
             type='time'
             isInvalid={!!errors.time}
             errorMessage='Please enter a time'
+            testId='form-input-time'
           />
         </div>
         <div className='mt-10'>
