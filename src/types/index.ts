@@ -1,6 +1,12 @@
 // packages
 import { ReactNode } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
+import {
+  UseFormRegister,
+  UseFormHandleSubmit,
+  UseFormRegisterReturn,
+  FieldErrors,
+  UseFormReset,
+} from 'react-hook-form';
 
 type RenderJSX = () => ReactNode;
 
@@ -65,7 +71,7 @@ export interface MenuProps {
   render: RenderJSX;
 }
 
-// Form
+// Booking
 export interface BookingForm {
   firstName: string;
   lastName: string;
@@ -73,6 +79,12 @@ export interface BookingForm {
   guests: number;
   date: string;
   time: string;
+}
+export interface FormProps {
+  handleSubmit: UseFormHandleSubmit<BookingForm>;
+  register: UseFormRegister<BookingForm>;
+  errors: FieldErrors<BookingForm>;
+  reset: UseFormReset<BookingForm>;
 }
 
 export interface InputProps {
@@ -82,4 +94,5 @@ export interface InputProps {
   type: string;
   isInvalid: boolean;
   errorMessage: string;
+  testId: string;
 }
