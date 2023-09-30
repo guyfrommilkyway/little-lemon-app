@@ -8,7 +8,7 @@ import { InputProps } from '@/types';
 import { MdError } from 'react-icons/md';
 
 const Input: React.FC<InputProps> = props => {
-  const { register, id, type, label, isInvalid, errorMessage } = props;
+  const { register, id, type, label, isInvalid, errorMessage, testId } = props;
 
   return (
     <div className='flex flex-col gap-2 mb-3'>
@@ -19,9 +19,10 @@ const Input: React.FC<InputProps> = props => {
         className={`px-4 py-2 text-base bg-secondary-3 rounded-[16px] shadow-md focus:outline-none ${
           isInvalid ? 'border border-red-500' : 'border-none'
         }`}
+        {...register}
         id={id}
         type={type}
-        {...register}
+        data-testid={testId}
       />
       {isInvalid && (
         <div className='flex flex-wrap gap-2'>

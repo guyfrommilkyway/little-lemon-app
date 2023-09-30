@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = props => {
   return (
     <Fragment>
       <Head title={title} />
-      <main id='layout' className='flex flex-col w-full h-full min-h-screen bg-white'>
+      <main id='layout' className='flex flex-col w-full h-full min-h-screen bg-white' data-testid='layout'>
         <Topbar />
         <section>{children}</section>
         <Footer />
